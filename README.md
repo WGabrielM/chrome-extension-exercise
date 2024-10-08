@@ -12,9 +12,6 @@ This project is a Chrome extension that displays messages from an organization's
   - [Running the Project](#running-the-project)
 - [Building the Project](#building-the-project)
 - [Running Tests](#running-tests)
-- [CI/CD](#cicd)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
