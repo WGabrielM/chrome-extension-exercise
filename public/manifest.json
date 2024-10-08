@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Org Messages",
+  "version": "1.0",
+  "description": "Display messages from an organization's admin",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "alarms"],
+  "icons": {
+    "48": "icon.png"
+  }
+}

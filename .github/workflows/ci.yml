@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm run test
+
+    - name: Build project
+      run: npm run build
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: ./dist
+
+    - name: Deploy to Chrome Web Store
+      run: npx chrome-web-store-upload upload \
+          --clientId ${{ secrets.CLIENT_ID }} \
+          --clientSecret ${{ secrets.CLIENT_SECRET }} \
+          --refreshToken ${{ secrets.REFRESH_TOKEN }} \
+          --extensionPath ./dist/my-extension.zip  # Change this to your zip file path
