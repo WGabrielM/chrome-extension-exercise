@@ -1,4 +1,4 @@
-# Chrome Extension: Admin Messages
+# Chrome Extension Exercise
 
 This project is a Chrome extension that displays messages from an organization's admin to users. It provides a user-friendly interface for viewing messages, marking them as read, and managing message history.
 
