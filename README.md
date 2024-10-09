@@ -1,50 +1,68 @@
-# React + TypeScript + Vite
+# Chrome Extension Exercise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Chrome extension that displays messages from an organization's admin to users. It provides a user-friendly interface for viewing messages, marking them as read, and managing message history.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+- [Building the Project](#building-the-project)
+- [Running Tests](#running-tests)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Show a badge icon for unread messages.
+- Display messages in a popup when the extension icon is clicked.
+- Allow users to mark messages as read.
+- Store message history locally.
+- Periodic checks for new messages via a background script.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS (or Bootstrap)
+- **Testing**: Jest, React Testing Library
+- **CI/CD**: GitHub Actions
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Prerequisites
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/WGabrielM/chrome-extension-exercise.git
+   cd chrome-extension-exercise
+
+2. Install the dependencies and run the project:
+
+   ```bash
+   npm install
+   npm run dev
+
+This will launch the project in development mode. You can load the unpacked extension in Chrome by following these steps:
+
+Open Chrome and go to chrome://extensions.
+Enable "Developer mode" in the top right corner.
+Click on "Load unpacked" and select the dist folder of your project.
+
+3. Building the Project
+
+   ```bash
+   npm run build
+  
+4. Runing Tests
+
+    ```bash
+   npm run test
