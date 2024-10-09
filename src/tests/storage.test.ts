@@ -17,11 +17,11 @@ const mockChrome: { storage: ChromeStorage } = {
 };
 
 
-(global as any).chrome = mockChrome;  
+(global as any).chrome = mockChrome;
 
 describe('storage utilities', () => {
   beforeEach(() => {
-    jest.clearAllMocks();  
+    jest.clearAllMocks();
   });
 
   test('getMessages should retrieve messages from chrome storage', async () => {
@@ -30,12 +30,12 @@ describe('storage utilities', () => {
       { id: 'msg2', content: 'Message 2', read: true },
     ];
 
-    mockChrome.storage.local.get.mockImplementation((keys, callback) => {
+    mockChrome.storage.local.get.mockImplementation((callback) => {
       callback({ messages: mockMessages });
     });
 
     const messages = await getMessages();
-    
+
     expect(messages).toEqual(mockMessages);
     expect(mockChrome.storage.local.get).toHaveBeenCalledWith('messages');
   });
@@ -46,7 +46,7 @@ describe('storage utilities', () => {
       { id: 'msg2', content: 'Message 2', read: true },
     ];
 
-    mockChrome.storage.local.get.mockImplementation((keys, callback) => {
+    mockChrome.storage.local.get.mockImplementation((callback) => {
       callback({ messages: mockMessages });
     });
 
