@@ -2,16 +2,18 @@ chrome.runtime.onInstalled.addListener(() => {
     fetchMessages();
   });
   
-  function fetchMessages(): void {
-    fetch("https://api.example.com/messages")
-      .then((response) => response.json())
-      .then((data) => {
-        chrome.storage.local.set({ messages: data.messages });
-        updateBadge(data.messages);
-      })
-      .catch((err) => {
-        console.error("Error fetching messages", err);
-      });
+  async function fetchMessages() {
+    try {
+      const response = await fetch('https://your-mock-api/messages');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+      chrome.action.setBadgeText({ text: 'ERR' });
+    }
   }
   
   function updateBadge(messages: Message[]): void {

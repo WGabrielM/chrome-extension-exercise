@@ -12,6 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: path.resolve(__dirname, 'public/popup.html'),
+        background: path.resolve(__dirname, 'src/background.ts'),
       },
       output: {
         entryFileNames: '[name].js',
